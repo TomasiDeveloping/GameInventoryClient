@@ -1,0 +1,26 @@
+<mat-toolbar class="toolbar">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon id="menuIcon">menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    <a routerLink="/game">Game Inventar</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a routerLink="/game" routerLinkActive="active">Games</a>
+      </li>
+      <li>
+        <a routerLink="/konsolen" routerLinkActive="active">Konsolen</a>
+      </li>
+      <li>
+        <a routerLink="/publisher" routerLinkActive="active">Publisher</a>
+      </li>
+      <li>
+        <a routerLink="/genre" routerLinkActive="active">Genre</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
