@@ -1,0 +1,24 @@
+h1 {
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+mat-radio-button {
+  margin: 0 8px;
+}
+.row-header {
+  display: flex;
+  justify-content: center;
+}
+.headerForm {
+  width: 600px;
+}
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+ejs-grid {
+  margin-top: 20px;
+}

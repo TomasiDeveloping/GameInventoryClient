@@ -4,10 +4,18 @@ a{
 }
 
 a:hover, a:active{
-  color: lightgray;
+  color: crimson;
 }
 
 .nav-caption{
   display: inline-block;
   padding-left: 6px;
+}
+mat-icon {
+  color: red;
+}
+.active {
+  background-color: dimgrey;
+  color: whitesmoke;
+  border-bottom: 2px solid red;
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {GameModel} from '../_models/gameModel';
+import {DisplayGame, GameModel, GameParams} from '../_models/gameModel';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -16,7 +16,16 @@ export class GameService {
     return this.http.get<GameModel[]>(this.BaseUrl);
   }
 
-  getGamesById(gameId: number): Observable<GameModel> {
-    return this.http.get<GameModel>(this.BaseUrl + gameId);
+  getDisplayGames(): Observable<DisplayGame[]> {
+    return this.http.get<DisplayGame[]>(this.BaseUrl + '/GameDto');
+  }
+
+  getDisplayGamesByParams(gameParams: GameParams): Observable<DisplayGame[]> {
+    let params = new HttpParams();
+    params = params.append('PlattformId', gameParams.plattformId.toString());
+    params = params.append('GenreId', gameParams.genreId.toString());
+    params = params.append('GameModeId', gameParams.gameModeId.toString());
+    return this.http.get<DisplayGame[]>(this.BaseUrl + '/ByParams', {params});
   }
 }
+

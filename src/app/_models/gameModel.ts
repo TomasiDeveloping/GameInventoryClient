@@ -35,3 +35,17 @@ export interface GameModel {
     }
   ];
 }
+
+export interface DisplayGame {
+  gameId: number;
+  gameName: string;
+  publisherName: string;
+  firstPublication: Date;
+  coverUrl: string;
+}
+
+export interface GameParams {
+  plattformId: number;
+  genreId: number;
+  gameModeId: number;
+}

@@ -1,1 +1,51 @@
-<p>game-home works!</p>
+<h1>Games</h1>
+<div class="container">
+  <div class="row-header">
+    <mat-form-field appearance="outline" class="headerForm">
+      <mat-label>Games</mat-label>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="value"
+             (ngModelChange)="onGameChange($event)">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.gameName}}
+        </mat-option>
+      </mat-autocomplete>
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="row" *ngIf="plattforms">
+    <mat-form-field appearance="outline">
+      <mat-label>Konsole</mat-label>
+      <mat-select (selectionChange)="onConsoleChange($event)">
+<!--        <mat-option value="0">Alle</mat-option>-->
+        <mat-option *ngFor="let plattform of plattforms" [value]="plattform.plattformId">{{plattform.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Genre</mat-label>
+      <mat-select (selectionChange)="onGenreChange($event)">
+        <mat-option *ngFor="let genre of genres" [value]="genre.genreId">{{genre.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="row" *ngIf="gameModes">
+    <mat-radio-group (change)="onGameModeChange($event)">
+      <mat-radio-button *ngFor="let gameMode of gameModes"
+                        [value]="gameMode.gameModeId" [checked]="gameMode.gameModeId === 0">{{gameMode.name}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <ejs-grid [dataSource]="filterDisplayGames" (recordDoubleClick)="onGameClick($event)" [allowPaging]="true">
+    <e-columns>
+      <e-column headerText="Game" field="coverUrl">
+        <ng-template #template let-data>
+          <img src="{{data.coverUrl}}" alt="{{data.gameName}}" style="width: auto; height: 80px;">
+        </ng-template>
+      </e-column>
+      <e-column headerText="Name" field="gameName"></e-column>
+      <e-column headerText="Publisher" field="publisherName"></e-column>
+      <e-column headerText="Erstveröffentlichung" field="firstPublication" type="date" format="dd.MM.yyyy"></e-column>
+    </e-columns>
+  </ejs-grid>
+</div>

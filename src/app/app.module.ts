@@ -17,6 +17,14 @@ import { GameHomeComponent } from './game/game-home/game-home.component';
 import { ConsoleHomeComponent } from './console/console-home/console-home.component';
 import { PublisherHomeComponent } from './publisher/publisher-home/publisher-home.component';
 import { GenreHomeComponent } from './genre/genre-home/genre-home.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatOptionModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {FilterService, GridModule, GroupService, PageService, SortService} from '@syncfusion/ej2-angular-grids';
 
 
 @NgModule({
@@ -35,13 +43,24 @@ import { GenreHomeComponent } from './genre/genre-home/genre-home.component';
     HttpClientModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatFormFieldModule,
     MatListModule,
+    MatInputModule,
     MatButtonModule,
     MatIconModule,
     FlexLayoutModule,
-    RoutingModule
+    RoutingModule,
+    MatRadioModule,
+    MatOptionModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    GridModule
   ],
-  providers: [],
+  providers: [PageService,
+    SortService,
+    FilterService,
+    GroupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
