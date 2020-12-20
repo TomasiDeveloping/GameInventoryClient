@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header mat-icon:hover {
+  cursor: pointer;
+  color: red;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: baseline;
+}
+.title {
+  font-weight: bold;
+  margin-right: 50px;
+}
+.plattformChip {
+  background-color: brown;
+  color: whitesmoke;
+}
+.gameModeChip {
+  background-color: cornflowerblue;
+}
+.genreChip {
+  background-color: darkgoldenrod;
+}
+.mediumChip {
+  background-color: forestgreen;
+  color: whitesmoke;
+}

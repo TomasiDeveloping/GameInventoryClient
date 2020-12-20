@@ -25,6 +25,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FilterService, GridModule, GroupService, PageService, SortService} from '@syncfusion/ej2-angular-grids';
+import { GameDetailComponent } from './game/game-detail/game-detail.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -36,6 +39,7 @@ import {FilterService, GridModule, GroupService, PageService, SortService} from 
     ConsoleHomeComponent,
     PublisherHomeComponent,
     GenreHomeComponent,
+    GameDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,9 @@ import {FilterService, GridModule, GroupService, PageService, SortService} from 
     MatSelectModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    GridModule
+    GridModule,
+    MatDialogModule,
+    MatChipsModule
   ],
   providers: [PageService,
     SortService,

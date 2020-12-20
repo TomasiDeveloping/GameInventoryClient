@@ -27,5 +27,9 @@ export class GameService {
     params = params.append('GameModeId', gameParams.gameModeId.toString());
     return this.http.get<DisplayGame[]>(this.BaseUrl + '/ByParams', {params});
   }
+
+  getGameByGameId(gameId: number): Observable<GameModel> {
+    return this.http.get<GameModel>(this.BaseUrl + gameId);
+  }
 }
 

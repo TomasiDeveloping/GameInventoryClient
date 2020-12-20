@@ -12,6 +12,8 @@ import {FormControl} from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
 import {MatSelectChange} from '@angular/material/select';
 import {MatRadioChange} from '@angular/material/radio';
+import {MatDialog} from '@angular/material/dialog';
+import {GameDetailComponent} from '../game-detail/game-detail.component';
 
 class PageSettingsModel {
 }
@@ -42,7 +44,8 @@ export class GameHomeComponent implements OnInit {
   constructor(private genreService: GenreService,
               private plattfoemService: PlattformService,
               private gameModeService: GamemodeService,
-              private gameService: GameService) { }
+              private gameService: GameService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.pageSetting = { pageSize: 10 };
@@ -109,6 +112,7 @@ export class GameHomeComponent implements OnInit {
       (response) => {
         this.displayGames = response;
         this.filterDisplayGames = response;
+        this.filterCacheGames = response;
         this.initAutoComplete();
       }
     );
@@ -153,6 +157,11 @@ export class GameHomeComponent implements OnInit {
   }
 
   onGameClick(event: any): void {
+    this.dialog.open(GameDetailComponent, {
+      width: '90%',
+      height: 'auto',
+      data: event.rowData.gameId
+    });
     console.log(event.rowData.gameId);
   }
 }

@@ -10,30 +10,10 @@ export interface GameModel {
   ageRating: number;
   information: string;
   coverUrl: string;
-  mediums: [
-    {
-      mediumName: string;
-      mediumId: number;
-    }
-  ];
-  genres: [
-    {
-      genreName: string;
-      genreId: number;
-    }
-    ];
-  plattforms: [
-    {
-      plattformName: string;
-      plattformId: number;
-    }
-  ];
-  gameModes: [
-    {
-      gameModeName: string;
-      gameModeId: number;
-    }
-  ];
+  mediums: [];
+  genres: [];
+  plattforms: [];
+  gameModes: [];
 }
 
 export interface DisplayGame {

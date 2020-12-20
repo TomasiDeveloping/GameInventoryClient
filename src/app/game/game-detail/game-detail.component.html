@@ -1,0 +1,76 @@
+<div class="header">
+  <h2 mat-dialog-title>{{currentGame?.name}}</h2>
+  <mat-icon (click)="onCloseClick()">close</mat-icon>
+</div>
+<div class="container" *ngIf="currentGame">
+  <mat-dialog-content class="mat-typography">
+    <img src="{{currentGame.coverUrl}}" alt="{{currentGame.name}}" width="auto" height="250px">
+    <div class="row">
+      <p class="title">Publisher:</p>
+      <p>{{currentGame.publisherName}}</p>
+    </div>
+    <div class="row">
+      <p class="title">Erstveröffentlichung:</p>
+      <p>{{currentGame.firstPublication | date: 'dd.MM.yyyy'}}</p>
+    </div>
+    <div class="row">
+      <p class="title">Konsole:</p>
+      <mat-chip-list>
+        <mat-chip class="plattformChip" *ngFor="let plattform of currentGame.plattforms">
+          {{plattform}}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <div class="row" *ngIf="currentGame.gameEngineName">
+      <p class="title">Spiel Engine:</p>
+      <p>{{currentGame.gameEngineName}}</p>
+    </div>
+    <div class="row">
+      <p class="title">Spielmodus:</p>
+      <mat-chip-list>
+        <mat-chip class="gameModeChip" *ngFor="let mode of currentGame.gameModes">
+          {{mode}}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <div class="row">
+      <p class="title">Genre:</p>
+      <mat-chip-list>
+        <mat-chip class="genreChip" *ngFor="let genre of currentGame.genres">{{genre}}</mat-chip>
+      </mat-chip-list>
+    </div>
+    <div class="row">
+      <p class="title">Altersfreigabe:</p>
+      <div ngSwitch="{{currentGame.ageRating}}">
+        <img *ngSwitchCase="0" src="assets/pictures/pegi0.png" alt="{{currentGame.ageRating}}">
+        <img *ngSwitchCase="3" src="assets/pictures/pegi3.png" alt="{{currentGame.ageRating}}">
+        <img *ngSwitchCase="7" src="assets/pictures/pegi7.png" alt="{{currentGame.ageRating}}">
+        <img *ngSwitchCase="12" src="assets/pictures/pegi12.png" alt="{{currentGame.ageRating}}">
+        <img *ngSwitchCase="16" src="assets/pictures/pegi16.png" alt="{{currentGame.ageRating}}">
+        <img *ngSwitchCase="18" src="assets/pictures/pegi18.png" alt="{{currentGame.ageRating}}">
+        <p *ngSwitchDefault>{{currentGame.ageRating}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="title">Medium:</p>
+      <mat-chip-list>
+        <mat-chip class="mediumChip" *ngFor="let medium of currentGame.mediums">
+          {{medium}}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <div class="row" *ngIf="currentGame.information">
+      <p class="title">Information:</p>
+      <p>{{currentGame.information}}</p>
+    </div>
+    <div class="row">
+      <p class="title">Beschreibung:</p>
+    </div>
+    <div>
+      <p>{{currentGame.description}}</p>
+    </div>
+  </mat-dialog-content>
+</div>
+
+
+
