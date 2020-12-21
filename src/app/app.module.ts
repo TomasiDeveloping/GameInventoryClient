@@ -28,6 +28,8 @@ import {FilterService, GridModule, GroupService, PageService, SortService} from 
 import { GameDetailComponent } from './game/game-detail/game-detail.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import {MatChipsModule} from '@angular/material/chips';
     MatAutocompleteModule,
     GridModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    MatCardModule,
+    MatExpansionModule
   ],
   providers: [PageService,
     SortService,

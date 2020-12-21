@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.consoleCard {
+  width: 450px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px #888888;
+  border: 2px solid black;
+}
+
+.consoleCard img {
+  height: 180px;
+  width: auto;
+}
+.pictureContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.release {
+  text-align: center;
+}

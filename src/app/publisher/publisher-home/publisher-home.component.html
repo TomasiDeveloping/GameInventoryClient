@@ -1,1 +1,16 @@
-<p>publisher-home works!</p>
+<h1>Publisher</h1>
+<div class="container" *ngIf="publishers">
+  <mat-accordion multi>
+    <mat-expansion-panel *ngFor="let publisher of publishers" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{publisher.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{publisher.country}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      {{publisher.description}}
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

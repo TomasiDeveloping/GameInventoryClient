@@ -4,4 +4,5 @@ export interface PlattformModel {
   description: string;
   producer: string;
   release: Date;
+  photoUrl: string;
 }

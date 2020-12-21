@@ -16,4 +16,8 @@ export class PlattformService {
   getPlattforms(): Observable<PlattformModel[]> {
     return this.http.get<PlattformModel[]>(this.BaseUrl);
   }
+
+  getPlattformById(plattformId: number): Observable<PlattformModel> {
+    return this.http.get<PlattformModel>(this.BaseUrl + plattformId);
+  }
 }

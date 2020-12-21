@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PlattformService} from '../../_services/plattform.service';
+import {PlattformModel} from '../../_models/plattformModel';
 
 @Component({
   selector: 'app-console-home',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsoleHomeComponent implements OnInit {
 
-  constructor() { }
+  plattforms: PlattformModel[];
+  plattform: PlattformModel;
+
+  constructor(private plattformService: PlattformService) { }
 
   ngOnInit(): void {
+    this.getPlattforms();
   }
 
+  getPlattforms(): void {
+    this.plattformService.getPlattforms().subscribe(
+      (response) => {
+        this.plattforms = response;
+      }
+    );
+  }
 }

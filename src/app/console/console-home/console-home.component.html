@@ -1,1 +1,20 @@
-<p>console-home works!</p>
+<h1>Konsolen</h1>
+<div class="container" *ngIf="plattforms">
+  <mat-card class="consoleCard" *ngFor="let plattform of plattforms">
+    <mat-card-header>
+      <mat-card-title>{{plattform.name}}</mat-card-title>
+      <mat-card-subtitle>Hersteller: {{plattform.producer}}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="pictureContainer">
+      <img mat-card-image src="{{plattform.photoUrl}}" alt="{{plattform.name}}">
+    </div>
+    <mat-card-content>
+      <p class="release">Veröffentlichung: {{plattform.release | date: 'dd.MM.yyyy'}}</p>
+      <p>{{plattform.description}}</p>
+    </mat-card-content>
+<!--    <mat-card-actions>-->
+<!--      <button mat-button>LIKE</button>-->
+<!--      <button mat-button>SHARE</button>-->
+<!--    </mat-card-actions>-->
+  </mat-card>
+</div>

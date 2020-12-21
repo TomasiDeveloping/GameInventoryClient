@@ -92,7 +92,7 @@ export class GameHomeComponent implements OnInit {
   getPlattforms(): void {
     this.plattfoemService.getPlattforms().subscribe(
       (response) => {
-        response.unshift({plattformId: 0, name: 'Alle', description: '', producer: '', release: new Date()});
+        response.unshift({plattformId: 0, name: 'Alle', description: '', producer: '', photoUrl: '', release: new Date()});
         this.plattforms = response;
       }
     );
