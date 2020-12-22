@@ -22,7 +22,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FilterService, GridModule, GroupService, PageService, SortService} from '@syncfusion/ej2-angular-grids';
 import { GameDetailComponent } from './game/game-detail/game-detail.component';
@@ -30,6 +30,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { GenreEditComponent } from './genre/genre-edit/genre-edit.component';
+import {NgxScrollTopModule} from 'ngx-scrolltop';
+import { NavigationHomeComponent } from './navigation/navigation-home/navigation-home.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
+import {ToastrModule} from 'ngx-toastr';
 
 
 @NgModule({
@@ -42,31 +47,39 @@ import {MatExpansionModule} from '@angular/material/expansion';
     PublisherHomeComponent,
     GenreHomeComponent,
     GameDetailComponent,
+    GenreEditComponent,
+    NavigationHomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatFormFieldModule,
-    MatListModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    FlexLayoutModule,
-    RoutingModule,
-    MatRadioModule,
-    MatOptionModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule,
-    GridModule,
-    MatDialogModule,
-    MatChipsModule,
-    MatCardModule,
-    MatExpansionModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatFormFieldModule,
+        MatListModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        FlexLayoutModule,
+        RoutingModule,
+        MatRadioModule,
+        MatOptionModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        GridModule,
+        MatDialogModule,
+        MatChipsModule,
+        MatCardModule,
+        MatExpansionModule,
+        FormsModule,
+      NgxScrollTopModule,
+      NgxSpinnerModule,
+      ToastrModule.forRoot({
+        positionClass: 'toast-bottom-right'
+      })
+    ],
   providers: [PageService,
     SortService,
     FilterService,

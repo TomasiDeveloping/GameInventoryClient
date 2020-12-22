@@ -1,0 +1,31 @@
+.genreCard {
+  width: 300px;
+  margin: 8px;
+  box-shadow: 2px 2px #888888;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+mat-card-actions {
+  align-self: flex-end;
+}
+mat-card-actions button {
+  background-color: darkgray;
+}
+mat-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+mat-card-header mat-icon {
+  color: red;
+}
+mat-card-header mat-icon:hover {
+  cursor: pointer;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

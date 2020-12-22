@@ -23,7 +23,11 @@
     "@angular/platform-browser-dynamic": "~11.0.4",
     "@angular/router": "~11.0.4",
     "@syncfusion/ej2-angular-grids": "^18.4.30",
+    "ngx-scrolltop": "^2.0.3",
+    "ngx-spinner": "^10.0.1",
+    "ngx-toastr": "^13.2.0",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^10.12.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

@@ -1,1 +1,28 @@
-<p>genre-home works!</p>
+<h1>Genre</h1>
+<button
+  mat-raised-button
+  color="primary"
+  (click)="onNewGenre()">Genre hinzufügen
+</button>
+<div class="container" *ngIf="genres">
+  <mat-card class="genreCard" *ngFor="let genre of genres">
+    <mat-card-header>
+      <mat-card-title>
+        {{genre.name}}
+      </mat-card-title>
+      <mat-icon
+        (click)="onDelete(genre)">delete
+      </mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{genre.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        (click)="onGenreEdit(genre)">Bearbeiten
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<ngx-scrolltop></ngx-scrolltop>

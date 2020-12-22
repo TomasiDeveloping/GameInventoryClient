@@ -14,6 +14,7 @@ import {MatSelectChange} from '@angular/material/select';
 import {MatRadioChange} from '@angular/material/radio';
 import {MatDialog} from '@angular/material/dialog';
 import {GameDetailComponent} from '../game-detail/game-detail.component';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 class PageSettingsModel {
 }
@@ -45,7 +46,8 @@ export class GameHomeComponent implements OnInit {
               private plattfoemService: PlattformService,
               private gameModeService: GamemodeService,
               private gameService: GameService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private spinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.pageSetting = { pageSize: 10 };
@@ -108,12 +110,14 @@ export class GameHomeComponent implements OnInit {
   }
 
   getDisplayGames(): void {
+    this.spinnerService.show();
     this.gameService.getDisplayGames().subscribe(
       (response) => {
         this.displayGames = response;
         this.filterDisplayGames = response;
         this.filterCacheGames = response;
         this.initAutoComplete();
+        this.spinnerService.hide();
       }
     );
   }
