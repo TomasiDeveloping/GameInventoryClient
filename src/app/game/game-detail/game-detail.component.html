@@ -7,7 +7,7 @@
     <img src="{{currentGame.coverUrl}}" alt="{{currentGame.name}}" width="auto" height="250px">
     <div class="row">
       <p class="title">Publisher:</p>
-      <p>{{currentGame.publisherName}}</p>
+      <p id="publisher" (click)="onPublisher(currentGame.publisherName)">{{currentGame.publisherName}}</p>
     </div>
     <div class="row">
       <p class="title">Erstveröffentlichung:</p>
@@ -36,7 +36,7 @@
     <div class="row">
       <p class="title">Genre:</p>
       <mat-chip-list>
-        <mat-chip class="genreChip" *ngFor="let genre of currentGame.genres">{{genre}}</mat-chip>
+        <mat-chip class="genreChip" *ngFor="let genre of currentGame.genres" (click)="onGenre(genre)">{{genre}}</mat-chip>
       </mat-chip-list>
     </div>
     <div class="row">

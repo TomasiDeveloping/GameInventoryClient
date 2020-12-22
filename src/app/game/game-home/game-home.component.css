@@ -22,3 +22,17 @@ mat-radio-button {
 ejs-grid {
   margin-top: 20px;
 }
+/*Style for the hover effect for the row */
+::ng-deep.e-grid .e-row:hover {
+  background: #99CCFF !important;
+}
+
+.e-grid .e-gridheader .e-headercell {
+  background: lightgrey;
+  color: black;
+}
+
+
+
+
+

@@ -35,6 +35,7 @@ import {NgxScrollTopModule} from 'ngx-scrolltop';
 import { NavigationHomeComponent } from './navigation/navigation-home/navigation-home.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {ToastrModule} from 'ngx-toastr';
+import { PublisherEditComponent } from './publisher/publisher-edit/publisher-edit.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import {ToastrModule} from 'ngx-toastr';
     GameDetailComponent,
     GenreEditComponent,
     NavigationHomeComponent,
+    PublisherEditComponent,
   ],
     imports: [
         BrowserModule,

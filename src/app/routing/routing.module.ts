@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'game', component: GameHomeComponent},
   { path: 'konsolen', component: ConsoleHomeComponent},
   { path: 'publisher', component: PublisherHomeComponent},
+  { path: 'publisher/:publisher', component: PublisherHomeComponent},
   { path: 'genre', component: GenreHomeComponent},
+  { path: 'genre/:genre', component: GenreHomeComponent},
   { path: '**', redirectTo: '/game', pathMatch: 'full'}
 ];
 

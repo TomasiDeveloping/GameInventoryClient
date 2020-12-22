@@ -25,4 +25,17 @@
     </mat-card-actions>
   </mat-card>
 </div>
-<ngx-scrolltop></ngx-scrolltop>
+
+<div class="container" *ngIf="genre">
+  <mat-card class="genreSingleCard">
+    <mat-card-header>
+      <mat-card-title>
+        {{genre.name}}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{genre.description}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+

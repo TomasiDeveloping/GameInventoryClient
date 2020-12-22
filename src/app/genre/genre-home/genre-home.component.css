@@ -7,6 +7,16 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.genreSingleCard {
+  width: 600px;
+  box-shadow: 10px 10px #888888;
+  border: 2px solid black;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 200px;
+}
+
 mat-card-actions {
   align-self: flex-end;
 }

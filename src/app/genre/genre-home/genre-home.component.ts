@@ -6,6 +6,7 @@ import {GenreEditComponent} from '../genre-edit/genre-edit.component';
 import Swal from 'sweetalert2';
 import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-genre-home',
@@ -15,14 +16,21 @@ import {NgxSpinnerService} from 'ngx-spinner';
 export class GenreHomeComponent implements OnInit {
 
   genres: GenreModel[];
+  genre: GenreModel;
 
   constructor(private genreService: GenreService,
               private dialog: MatDialog,
+              private route: ActivatedRoute,
               private spinnerService: NgxSpinnerService,
               private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.getGenres();
+    const genre = this.route.snapshot.paramMap.get('genre');
+    if (genre) {
+      this.getGenreByName(genre);
+    } else {
+      this.getGenres();
+    }
   }
 
   getGenres(): void {
@@ -33,6 +41,18 @@ export class GenreHomeComponent implements OnInit {
     );
   }
 
+  getGenreByName(genreName: string): void {
+    this.spinnerService.show();
+    this.genreService.getGenreByName(genreName).subscribe(
+      (response) => {
+        this.genre = response;
+        this.spinnerService.hide();
+      }, error => {
+        this.spinnerService.hide();
+        this.toastr.error(error.error.message);
+      }
+    );
+  }
   onGenreEdit(genre: GenreModel): void {
     const dialogRef = this.dialog.open(GenreEditComponent, {
       width: '60%',

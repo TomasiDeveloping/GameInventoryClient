@@ -16,4 +16,20 @@ export class PublisherService {
   getPublishers(): Observable<PublisherModels[]> {
     return this.http.get<PublisherModels[]>(this.BaseUrl);
   }
+
+  getPublisherByName(publisherName: string): Observable<PublisherModels> {
+    return this.http.get<PublisherModels>(this.BaseUrl + 'Name/' + publisherName);
+  }
+
+  insertPublisher(publisher: PublisherModels): Observable<PublisherModels> {
+    return this.http.post<PublisherModels>(this.BaseUrl, publisher);
+  }
+
+  updatePublisher(publisherId: number, publisher: PublisherModels): Observable<PublisherModels> {
+    return this.http.put<PublisherModels>(this.BaseUrl + publisherId, publisher);
+  }
+
+  deletePublisher(publisherId: number): Observable<boolean> {
+    return this.http.delete<boolean>(this.BaseUrl + publisherId);
+  }
 }

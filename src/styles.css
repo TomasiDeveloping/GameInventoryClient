@@ -11,3 +11,11 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+  border-color: black;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+  color: red;
+  background-color: red;
+}

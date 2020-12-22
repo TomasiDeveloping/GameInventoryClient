@@ -1,0 +1,27 @@
+<div class="publisherDialogHeader">
+  <h2 mat-dialog-title *ngIf="currentPublisher.name.length > 0">{{currentPublisher.name}} bearbeiten</h2>
+  <h2 mat-dialog-title *ngIf="currentPublisher.name.length === 0">Genre hinzufügen</h2>
+  <mat-icon (click)="onCloseDialog(false)">close</mat-icon>
+</div>
+<mat-dialog-content>
+  <form #editForm="ngForm" id="editForm" (ngSubmit)="onUpdatePublisher()">
+    <mat-form-field appearance="outline">
+      <mat-label>Genre Name</mat-label>
+      <input matInput type="text" name="name" [ngModel]="currentPublisher.name" required>
+      <mat-error *ngIf="editForm.invalid">Name darf nicht leer sein</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Land</mat-label>
+      <input matInput type="text" name="country" [ngModel]="currentPublisher.country" required>
+      <mat-error *ngIf="editForm.invalid">Land darf nicht leer sein</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Beschreibung</mat-label>
+      <textarea matInput rows="15" cols="40" name="description" [ngModel]="currentPublisher.description"
+                required></textarea>
+      <mat-error *ngIf="editForm.invalid">Beschreibung darf nicht leer sein</mat-error>
+    </mat-form-field>
+    <button [disabled]="!editForm.dirty || !editForm.valid" mat-raised-button color="primary"
+            type="submit">{{currentPublisher.publisherId > 0 ? 'speichern' : 'hinzufügen'}}</button>
+  </form>
+</mat-dialog-content>

@@ -35,3 +35,13 @@
   background-color: forestgreen;
   color: whitesmoke;
 }
+mat-chip:hover {
+  cursor: pointer;
+}
+#publisher {
+  color: darkblue;
+}
+#publisher:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
