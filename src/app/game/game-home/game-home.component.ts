@@ -5,7 +5,7 @@ import {PlattformService} from '../../_services/plattform.service';
 import {PlattformModel} from '../../_models/plattformModel';
 import {GamemodeService} from '../../_services/gamemode.service';
 import {GameModeModel} from '../../_models/gameModeModel';
-import {DisplayGame, GameParams} from '../../_models/gameModel';
+import {DisplayGame, GameModel, GameParams} from '../../_models/gameModel';
 import {GameService} from '../../_services/game.service';
 import {Observable} from 'rxjs';
 import {FormControl} from '@angular/forms';
@@ -15,6 +15,7 @@ import {MatRadioChange} from '@angular/material/radio';
 import {MatDialog} from '@angular/material/dialog';
 import {GameDetailComponent} from '../game-detail/game-detail.component';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {GameEditComponent} from '../game-edit/game-edit.component';
 
 class PageSettingsModel {
 }
@@ -167,5 +168,30 @@ export class GameHomeComponent implements OnInit {
       data: event.rowData.gameId
     });
     console.log(event.rowData.gameId);
+  }
+
+  onAddGame(): void {
+    // tslint:disable-next-line:new-parens
+    const game: GameModel = new class implements GameModel {
+      ageRating: number;
+      coverUrl = '';
+      description = '';
+      firstPublication: Date;
+      gameEngineId: number;
+      gameEngineName = '';
+      gameId = 0;
+      gameModes = [];
+      genres = [];
+      information = '';
+      mediums = [];
+      name = '';
+      plattforms = [];
+      publisherId: number;
+      publisherName = '';
+    };
+    this.dialog.open(GameEditComponent, {
+      width: '60%',
+      data: game
+    });
   }
 }

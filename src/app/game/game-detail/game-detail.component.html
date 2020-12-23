@@ -1,5 +1,18 @@
 <div class="header">
   <h2 mat-dialog-title>{{currentGame?.name}}</h2>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>settings</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onUpdate(currentGame)">
+      <mat-icon>edit</mat-icon>
+      <span>Bearbeiten</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>delete</mat-icon>
+      <span>Löschen</span>
+    </button>
+  </mat-menu>
   <mat-icon (click)="onCloseClick()">close</mat-icon>
 </div>
 <div class="container" *ngIf="currentGame">
@@ -16,8 +29,8 @@
     <div class="row">
       <p class="title">Konsole:</p>
       <mat-chip-list>
-        <mat-chip class="plattformChip" *ngFor="let plattform of currentGame.plattforms">
-          {{plattform}}
+        <mat-chip class="plattformChip" *ngFor="let plattform of currentGame.plattforms" (click)="onPlattform(plattform.plattformName)">
+          {{plattform.plattformName}}
         </mat-chip>
       </mat-chip-list>
     </div>
@@ -29,14 +42,14 @@
       <p class="title">Spielmodus:</p>
       <mat-chip-list>
         <mat-chip class="gameModeChip" *ngFor="let mode of currentGame.gameModes">
-          {{mode}}
+          {{mode.gameModeName}}
         </mat-chip>
       </mat-chip-list>
     </div>
     <div class="row">
       <p class="title">Genre:</p>
       <mat-chip-list>
-        <mat-chip class="genreChip" *ngFor="let genre of currentGame.genres" (click)="onGenre(genre)">{{genre}}</mat-chip>
+        <mat-chip class="genreChip" *ngFor="let genre of currentGame.genres" (click)="onGenre(genre.genreName)">{{genre.genreName}}</mat-chip>
       </mat-chip-list>
     </div>
     <div class="row">
@@ -55,7 +68,7 @@
       <p class="title">Medium:</p>
       <mat-chip-list>
         <mat-chip class="mediumChip" *ngFor="let medium of currentGame.mediums">
-          {{medium}}
+          {{medium.mediumName}}
         </mat-chip>
       </mat-chip-list>
     </div>

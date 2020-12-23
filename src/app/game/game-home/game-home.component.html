@@ -1,4 +1,5 @@
 <h1>Games</h1>
+<button mat-raised-button color="primary" (click)="onAddGame()">Game hinzufügen</button>
 <div class="container">
   <div class="row-header">
     <mat-form-field appearance="outline" class="headerForm">
@@ -19,7 +20,6 @@
     <mat-form-field appearance="outline">
       <mat-label>Konsole</mat-label>
       <mat-select (selectionChange)="onConsoleChange($event)">
-<!--        <mat-option value="0">Alle</mat-option>-->
         <mat-option *ngFor="let plattform of plattforms" [value]="plattform.plattformId">{{plattform.name}}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -36,7 +36,7 @@
                         [value]="gameMode.gameModeId" [checked]="gameMode.gameModeId === 0">{{gameMode.name}}</mat-radio-button>
     </mat-radio-group>
   </div>
-  <ejs-grid [dataSource]="filterDisplayGames" (recordDoubleClick)="onGameClick($event)" [allowPaging]="true">
+  <ejs-grid [dataSource]="filterDisplayGames" (recordDoubleClick)="onGameClick($event)" [allowPaging]="true" [locale]="'de'">
     <e-columns>
       <e-column headerText="Game" field="coverUrl">
         <ng-template #template let-data>

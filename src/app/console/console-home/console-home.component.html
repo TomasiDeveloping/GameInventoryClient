@@ -1,4 +1,5 @@
 <h1>Konsolen</h1>
+<button mat-raised-button color="primary" (click)="addPlattform()">Konsole hinzufügen</button>
 <div class="container" *ngIf="plattforms">
   <mat-card class="consoleCard" *ngFor="let plattform of plattforms">
     <mat-card-header>
@@ -12,9 +13,34 @@
       <p class="release">Veröffentlichung: {{plattform.release | date: 'dd.MM.yyyy'}}</p>
       <p>{{plattform.description}}</p>
     </mat-card-content>
-<!--    <mat-card-actions>-->
-<!--      <button mat-button>LIKE</button>-->
-<!--      <button mat-button>SHARE</button>-->
-<!--    </mat-card-actions>-->
+    <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>settings</mat-icon>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="btnContainer">
+        <button mat-raised-button color="primary" (click)="onUpdate(plattform)">bearbeiten</button>
+        <button mat-raised-button color="warn" (click)="onDelete(plattform)">löschen</button>
+      </div>
+    </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card>
+</div>
+
+<div class="container" *ngIf="currentPlattform">
+  <mat-card class="singleConsoleCard">
+    <mat-card-header>
+      <mat-card-title>{{currentPlattform.name}}</mat-card-title>
+      <mat-card-subtitle>Hersteller: {{currentPlattform.producer}}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="pictureContainer">
+      <img mat-card-image src="{{currentPlattform.photoUrl}}" alt="{{currentPlattform.name}}">
+    </div>
+    <mat-card-content>
+      <p class="release">Veröffentlichung: {{currentPlattform.release | date: 'dd.MM.yyyy'}}</p>
+      <p>{{currentPlattform.description}}</p>
+    </mat-card-content>
   </mat-card>
 </div>

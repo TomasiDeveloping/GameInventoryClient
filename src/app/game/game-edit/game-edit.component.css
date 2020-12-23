@@ -1,0 +1,19 @@
+.gameDialogHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.gameDialogHeader mat-icon:hover {
+  color: red;
+  cursor: pointer;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form button {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}

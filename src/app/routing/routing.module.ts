@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/game', pathMatch: 'full'},
   { path: 'game', component: GameHomeComponent},
   { path: 'konsolen', component: ConsoleHomeComponent},
+  { path: 'konsolen/:plattform', component: ConsoleHomeComponent},
   { path: 'publisher', component: PublisherHomeComponent},
   { path: 'publisher/:publisher', component: PublisherHomeComponent},
   { path: 'genre', component: GenreHomeComponent},

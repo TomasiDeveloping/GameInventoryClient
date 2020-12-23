@@ -1,0 +1,66 @@
+<div class="gameDialogHeader">
+  <h2 mat-dialog-title *ngIf="currentGame.name.length > 0">{{currentGame.name}} bearbeiten</h2>
+  <h2 mat-dialog-title *ngIf="currentGame.name.length === 0">Game hinzufügen</h2>
+  <mat-icon (click)="onCloseDialog(false)">close</mat-icon>
+</div>
+<mat-dialog-content>
+  <form #editForm="ngForm" id="editForm" (ngSubmit)="onUpdateGame()">
+    <mat-form-field appearance="outline">
+      <mat-label>Game Name</mat-label>
+      <input matInput type="text" name="name" [ngModel]="currentGame.name" required>
+      <mat-error *ngIf="editForm.invalid">Name darf nicht leer sein</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Cover link</mat-label>
+      <input matInput type="text" name="coverUrl" [ngModel]="currentGame.coverUrl">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Altersfreigabe</mat-label>
+      <input matInput type="number" name="ageRating" [ngModel]="currentGame.ageRating" required>
+      <mat-error *ngIf="editForm.invalid">Altersfreigabe angeben</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Informationen</mat-label>
+      <input matInput type="text" name="information" [ngModel]="currentGame.information">
+    </mat-form-field>
+    <ejs-datepicker width="40%" format="dd.MM.yyyy"
+                    [openOnFocus]="true"
+                    [firstDayOfWeek]="1"
+                    [ngModel]="currentGame.firstPublication"
+                    [value]="currentGame.firstPublication"
+                    name="firstPublication"
+                    #firstPublication="ngModel"
+                    placeholder="Erstveröffentlichung" required>
+    </ejs-datepicker>
+    <mat-error *ngIf="firstPublication.invalid || firstPublication.pristine">Datum darf nicht leer sein</mat-error>
+    <mat-form-field appearance="outline">
+      <mat-label>Publisher</mat-label>
+      <input matInput type="text" name="publisher" [ngModel]="currentGame.publisherName" required>
+      <mat-error *ngIf="editForm.invalid">Publisher darf nicht leer sein</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Game Engine</mat-label>
+      <input matInput type="text" name="engine" [ngModel]="currentGame.gameEngineName">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Genres</mat-label>
+      <input matInput type="text" name="genre">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Konsolen</mat-label>
+      <input matInput type="text" name="plattform">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Medium</mat-label>
+      <input matInput type="text" name="medium">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Beschreibung</mat-label>
+      <textarea matInput rows="15" cols="40" name="description" [ngModel]="currentGame.description"></textarea>
+    </mat-form-field>
+    <button [disabled]="!editForm.dirty || !editForm.valid" mat-raised-button color="primary"
+            type="submit">{{currentGame.gameId > 0 ? 'speichern' : 'hinzufügen'}}</button>
+  </form>
+</mat-dialog-content>
+
+
