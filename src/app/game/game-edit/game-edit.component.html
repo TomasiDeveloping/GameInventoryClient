@@ -7,21 +7,29 @@
   <form #editForm="ngForm" id="editForm" (ngSubmit)="onUpdateGame()">
     <mat-form-field appearance="outline">
       <mat-label>Game Name</mat-label>
-      <input matInput type="text" name="name" [ngModel]="currentGame.name" required>
+      <label>
+        <input matInput type="text" name="name" [ngModel]="currentGame.name" required>
+      </label>
       <mat-error *ngIf="editForm.invalid">Name darf nicht leer sein</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Cover link</mat-label>
-      <input matInput type="text" name="coverUrl" [ngModel]="currentGame.coverUrl">
+      <label>
+        <input matInput type="text" name="coverUrl" [ngModel]="currentGame.coverUrl">
+      </label>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Altersfreigabe</mat-label>
-      <input matInput type="number" name="ageRating" [ngModel]="currentGame.ageRating" required>
+      <mat-select [ngModel]="currentGame.ageRating" name="ageRating" required>
+        <mat-option *ngFor="let age of ageRating" [value]="age">{{age}}</mat-option>
+      </mat-select>
       <mat-error *ngIf="editForm.invalid">Altersfreigabe angeben</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Informationen</mat-label>
-      <input matInput type="text" name="information" [ngModel]="currentGame.information">
+      <label>
+        <input matInput type="text" name="information" [ngModel]="currentGame.information">
+      </label>
     </mat-form-field>
     <ejs-datepicker width="40%" format="dd.MM.yyyy"
                     [openOnFocus]="true"
@@ -32,31 +40,50 @@
                     #firstPublication="ngModel"
                     placeholder="Erstveröffentlichung" required>
     </ejs-datepicker>
-    <mat-error *ngIf="firstPublication.invalid || firstPublication.pristine">Datum darf nicht leer sein</mat-error>
+    <mat-error *ngIf="firstPublication.invalid">Datum darf nicht leer sein</mat-error>
     <mat-form-field appearance="outline">
       <mat-label>Publisher</mat-label>
-      <input matInput type="text" name="publisher" [ngModel]="currentGame.publisherName" required>
+      <mat-select [ngModel]="currentGame.publisherId" name="publisher" required>
+        <mat-option *ngFor="let publisher of publishers"
+                    [value]="publisher.publisherId">{{publisher.publisherName}}</mat-option>
+      </mat-select>
       <mat-error *ngIf="editForm.invalid">Publisher darf nicht leer sein</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Game Engine</mat-label>
-      <input matInput type="text" name="engine" [ngModel]="currentGame.gameEngineName">
+      <mat-select [ngModel]="currentGame.gameEngineId" name="engine">
+        <mat-option *ngFor="let engine of engines" [value]="engine.gameEngineId">{{engine.gameEngineName}}</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Genres</mat-label>
-      <input matInput type="text" name="genre">
+      <mat-select multiple [ngModel]="currentGame.genres" name="genres" [compareWith]="genreCompare">
+        <mat-option *ngFor="let genre of genres" [value]="genre">{{genre.genreName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Spielmodus</mat-label>
+      <mat-select multiple [ngModel]="currentGame.gameModes" name="gameModes" [compareWith]="gameModeCompare">
+        <mat-option *ngFor="let mode of gameModes" [value]="mode">{{mode.gameModeName}}</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Konsolen</mat-label>
-      <input matInput type="text" name="plattform">
+      <mat-select multiple [ngModel]="currentGame.plattforms" name="plattforms" [compareWith]="plattformCompare">
+        <mat-option *ngFor="let plattform of plattforms" [value]="plattform">{{plattform.plattformName}}</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Medium</mat-label>
-      <input matInput type="text" name="medium">
+      <mat-select multiple [ngModel]="currentGame.mediums" name="mediums" [compareWith]="mediumCompare">
+        <mat-option *ngFor="let medium of mediums" [value]="medium">{{medium.mediumName}}</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Beschreibung</mat-label>
-      <textarea matInput rows="15" cols="40" name="description" [ngModel]="currentGame.description"></textarea>
+      <label>
+        <textarea matInput rows="15" cols="40" name="description" [ngModel]="currentGame.description"></textarea>
+      </label>
     </mat-form-field>
     <button [disabled]="!editForm.dirty || !editForm.valid" mat-raised-button color="primary"
             type="submit">{{currentGame.gameId > 0 ? 'speichern' : 'hinzufügen'}}</button>

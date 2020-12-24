@@ -41,6 +41,7 @@ export class GameHomeComponent implements OnInit {
 
   value = '';
   myControl = new FormControl();
+
   filteredOptions: Observable<DisplayGame[]>;
 
   constructor(private genreService: GenreService,

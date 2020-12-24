@@ -30,6 +30,6 @@ mat-toolbar{
 
 @media(max-width: 959px){
   mat-toolbar{
-    border-radius: 0px;
+    border-radius: 0;
   }
 }

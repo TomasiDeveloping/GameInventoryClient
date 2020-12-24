@@ -14,17 +14,17 @@
       <p>{{plattform.description}}</p>
     </mat-card-content>
     <mat-accordion>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <mat-icon>settings</mat-icon>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="btnContainer">
-        <button mat-raised-button color="primary" (click)="onUpdate(plattform)">bearbeiten</button>
-        <button mat-raised-button color="warn" (click)="onDelete(plattform)">löschen</button>
-      </div>
-    </mat-expansion-panel>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>settings</mat-icon>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="btnContainer">
+          <button mat-raised-button color="primary" (click)="onUpdate(plattform)">bearbeiten</button>
+          <button mat-raised-button color="warn" (click)="onDelete(plattform)">löschen</button>
+        </div>
+      </mat-expansion-panel>
     </mat-accordion>
   </mat-card>
 </div>

@@ -18,7 +18,6 @@ export class PublisherHomeComponent implements OnInit {
   publishers: PublisherModels[];
   publisher: PublisherModels;
   currentPublisher: PublisherModels;
-  panelOpenState: false;
 
   constructor(private publisherService: PublisherService,
               private spinnerService: NgxSpinnerService,

@@ -29,7 +29,8 @@
     <div class="row">
       <p class="title">Konsole:</p>
       <mat-chip-list>
-        <mat-chip class="plattformChip" *ngFor="let plattform of currentGame.plattforms" (click)="onPlattform(plattform.plattformName)">
+        <mat-chip class="plattformChip" *ngFor="let plattform of currentGame.plattforms"
+                  (click)="onPlattform(plattform.plattformName)">
           {{plattform.plattformName}}
         </mat-chip>
       </mat-chip-list>
@@ -49,7 +50,8 @@
     <div class="row">
       <p class="title">Genre:</p>
       <mat-chip-list>
-        <mat-chip class="genreChip" *ngFor="let genre of currentGame.genres" (click)="onGenre(genre.genreName)">{{genre.genreName}}</mat-chip>
+        <mat-chip class="genreChip" *ngFor="let genre of currentGame.genres"
+                  (click)="onGenre(genre.genreName)">{{genre.genreName}}</mat-chip>
       </mat-chip-list>
     </div>
     <div class="row">

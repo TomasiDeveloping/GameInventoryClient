@@ -7,13 +7,17 @@
   <form #editForm="ngForm" id="editForm" (ngSubmit)="onUpdateGenre()">
     <mat-form-field appearance="outline">
       <mat-label>Genre Name</mat-label>
-      <input matInput type="text" name="name" [ngModel]="currentGenre.name" required>
+      <label>
+        <input matInput type="text" name="name" [ngModel]="currentGenre.name" required>
+      </label>
       <mat-error *ngIf="editForm.invalid">Name darf nicht leer sein</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Beschreibung</mat-label>
-      <textarea matInput rows="15" cols="40" name="description" [ngModel]="currentGenre.description"
-                required></textarea>
+      <label>
+<textarea matInput rows="15" cols="40" name="description" [ngModel]="currentGenre.description"
+          required></textarea>
+      </label>
       <mat-error *ngIf="editForm.invalid">Beschreibung darf nicht leer sein</mat-error>
     </mat-form-field>
     <button [disabled]="!editForm.dirty || !editForm.valid" mat-raised-button color="primary"

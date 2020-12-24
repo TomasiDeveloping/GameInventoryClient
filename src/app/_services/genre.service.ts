@@ -17,10 +17,6 @@ export class GenreService {
     return this.http.get<GenreModel[]>(this.BaseUrl);
   }
 
-  getGenreById(genreId: number): Observable<GenreModel> {
-    return this.http.get<GenreModel>(this.BaseUrl + genreId);
-  }
-
   getGenreByName(genreName: string): Observable<GenreModel> {
     return this.http.get<GenreModel>(this.BaseUrl + 'Name/' + genreName);
   }

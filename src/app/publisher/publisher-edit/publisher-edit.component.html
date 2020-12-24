@@ -7,18 +7,24 @@
   <form #editForm="ngForm" id="editForm" (ngSubmit)="onUpdatePublisher()">
     <mat-form-field appearance="outline">
       <mat-label>Genre Name</mat-label>
-      <input matInput type="text" name="name" [ngModel]="currentPublisher.name" required>
+      <label>
+        <input matInput type="text" name="name" [ngModel]="currentPublisher.name" required>
+      </label>
       <mat-error *ngIf="editForm.invalid">Name darf nicht leer sein</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Land</mat-label>
-      <input matInput type="text" name="country" [ngModel]="currentPublisher.country" required>
+      <label>
+        <input matInput type="text" name="country" [ngModel]="currentPublisher.country" required>
+      </label>
       <mat-error *ngIf="editForm.invalid">Land darf nicht leer sein</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Beschreibung</mat-label>
-      <textarea matInput rows="15" cols="40" name="description" [ngModel]="currentPublisher.description"
-                required></textarea>
+      <label>
+<textarea matInput rows="15" cols="40" name="description" [ngModel]="currentPublisher.description"
+          required></textarea>
+      </label>
       <mat-error *ngIf="editForm.invalid">Beschreibung darf nicht leer sein</mat-error>
     </mat-form-field>
     <button [disabled]="!editForm.dirty || !editForm.valid" mat-raised-button color="primary"

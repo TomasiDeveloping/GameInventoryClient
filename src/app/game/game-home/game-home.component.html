@@ -4,8 +4,10 @@
   <div class="row-header">
     <mat-form-field appearance="outline" class="headerForm">
       <mat-label>Games</mat-label>
-      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="value"
-             (ngModelChange)="onGameChange($event)">
+      <label>
+        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="value"
+               (ngModelChange)="onGameChange($event)">
+      </label>
       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
           {{option.gameName}}
@@ -33,10 +35,12 @@
   <div class="row" *ngIf="gameModes">
     <mat-radio-group (change)="onGameModeChange($event)">
       <mat-radio-button *ngFor="let gameMode of gameModes"
-                        [value]="gameMode.gameModeId" [checked]="gameMode.gameModeId === 0">{{gameMode.name}}</mat-radio-button>
+                        [value]="gameMode.gameModeId"
+                        [checked]="gameMode.gameModeId === 0">{{gameMode.name}}</mat-radio-button>
     </mat-radio-group>
   </div>
-  <ejs-grid [dataSource]="filterDisplayGames" (recordDoubleClick)="onGameClick($event)" [allowPaging]="true" [locale]="'de'">
+  <ejs-grid [dataSource]="filterDisplayGames" (recordDoubleClick)="onGameClick($event)" [allowPaging]="true"
+            [locale]="'de'">
     <e-columns>
       <e-column headerText="Game" field="coverUrl">
         <ng-template #template let-data>
