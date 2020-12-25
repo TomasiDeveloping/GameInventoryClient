@@ -58,25 +58,25 @@
     <mat-form-field appearance="outline">
       <mat-label>Genres</mat-label>
       <mat-select multiple [ngModel]="currentGame.genres" name="genres" [compareWith]="genreCompare">
-        <mat-option *ngFor="let genre of genres" [value]="genre">{{genre.genreName}}</mat-option>
+        <mat-option (onSelectionChange)="onGenresChange($event)" *ngFor="let genre of genres" [value]="genre">{{genre.genreName}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Spielmodus</mat-label>
       <mat-select multiple [ngModel]="currentGame.gameModes" name="gameModes" [compareWith]="gameModeCompare">
-        <mat-option *ngFor="let mode of gameModes" [value]="mode">{{mode.gameModeName}}</mat-option>
+        <mat-option (onSelectionChange)="onGameModeChange($event)" *ngFor="let mode of gameModes" [value]="mode">{{mode.gameModeName}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Konsolen</mat-label>
       <mat-select multiple [ngModel]="currentGame.plattforms" name="plattforms" [compareWith]="plattformCompare">
-        <mat-option *ngFor="let plattform of plattforms" [value]="plattform">{{plattform.plattformName}}</mat-option>
+        <mat-option (onSelectionChange)="onPlattformChange($event)" *ngFor="let plattform of plattforms" [value]="plattform">{{plattform.plattformName}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Medium</mat-label>
       <mat-select multiple [ngModel]="currentGame.mediums" name="mediums" [compareWith]="mediumCompare">
-        <mat-option *ngFor="let medium of mediums" [value]="medium">{{medium.mediumName}}</mat-option>
+        <mat-option (onSelectionChange)="onMediumChange($event)" *ngFor="let medium of mediums" [value]="medium">{{medium.mediumName}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">

@@ -9,27 +9,27 @@ import {PublisherModels} from '../_models/publisherModels';
 })
 export class PublisherService {
 
-  private readonly BaseUrl = environment.API_URL + 'Publisher/';
+  private readonly baseUrl = environment.API_URL + 'Publisher/';
 
   constructor(private http: HttpClient) { }
 
   getPublishers(): Observable<PublisherModels[]> {
-    return this.http.get<PublisherModels[]>(this.BaseUrl);
+    return this.http.get<PublisherModels[]>(this.baseUrl);
   }
 
   getPublisherByName(publisherName: string): Observable<PublisherModels> {
-    return this.http.get<PublisherModels>(this.BaseUrl + 'Name/' + publisherName);
+    return this.http.get<PublisherModels>(this.baseUrl + 'Name/' + publisherName);
   }
 
   insertPublisher(publisher: PublisherModels): Observable<PublisherModels> {
-    return this.http.post<PublisherModels>(this.BaseUrl, publisher);
+    return this.http.post<PublisherModels>(this.baseUrl, publisher);
   }
 
   updatePublisher(publisherId: number, publisher: PublisherModels): Observable<PublisherModels> {
-    return this.http.put<PublisherModels>(this.BaseUrl + publisherId, publisher);
+    return this.http.put<PublisherModels>(this.baseUrl + publisherId, publisher);
   }
 
   deletePublisher(publisherId: number): Observable<boolean> {
-    return this.http.delete<boolean>(this.BaseUrl + publisherId);
+    return this.http.delete<boolean>(this.baseUrl + publisherId);
   }
 }

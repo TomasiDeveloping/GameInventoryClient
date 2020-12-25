@@ -9,31 +9,31 @@ import {PlattformModel} from '../_models/plattformModel';
 })
 export class PlattformService {
 
-  private readonly BaseUrl = environment.API_URL + 'Plattform/';
+  private readonly baseUrl = environment.API_URL + 'Plattform/';
 
   constructor(private http: HttpClient) { }
 
   getPlattforms(): Observable<PlattformModel[]> {
-    return this.http.get<PlattformModel[]>(this.BaseUrl);
+    return this.http.get<PlattformModel[]>(this.baseUrl);
   }
 
   getPlatfformByName(plattformName: string): Observable<PlattformModel> {
-    return this.http.get<PlattformModel>(this.BaseUrl + 'Name/' + plattformName);
+    return this.http.get<PlattformModel>(this.baseUrl + 'Name/' + plattformName);
   }
 
   getPlattformById(plattformId: number): Observable<PlattformModel> {
-    return this.http.get<PlattformModel>(this.BaseUrl + plattformId);
+    return this.http.get<PlattformModel>(this.baseUrl + plattformId);
   }
 
   updatePlattform(plattformId: number, plattform: PlattformModel): Observable<PlattformModel> {
-    return this.http.put<PlattformModel>(this.BaseUrl + plattformId, plattform);
+    return this.http.put<PlattformModel>(this.baseUrl + plattformId, plattform);
   }
 
   insertPlattform(plattform: PlattformModel): Observable<PlattformModel> {
-    return this.http.post<PlattformModel>(this.BaseUrl, plattform);
+    return this.http.post<PlattformModel>(this.baseUrl, plattform);
   }
 
   deletePlattform(plattformId: number): Observable<boolean> {
-    return this.http.delete<boolean>(this.BaseUrl + plattformId);
+    return this.http.delete<boolean>(this.baseUrl + plattformId);
   }
 }

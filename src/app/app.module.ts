@@ -24,7 +24,15 @@ import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {FilterService, GridModule, GroupService, PageService, SortService} from '@syncfusion/ej2-angular-grids';
+import {
+  EditService,
+  FilterService,
+  GridModule,
+  GroupService,
+  PageService,
+  SortService,
+  ToolbarService
+} from '@syncfusion/ej2-angular-grids';
 import {GameDetailComponent} from './game/game-detail/game-detail.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
@@ -40,6 +48,10 @@ import {ConsoleEditComponent} from './console/console-edit/console-edit.componen
 import {DatePickerModule} from '@syncfusion/ej2-angular-calendars';
 import {MatMenuModule} from '@angular/material/menu';
 import { GameEditComponent } from './game/game-edit/game-edit.component';
+import { SettingsHomeComponent } from './settings/settings-home/settings-home.component';
+import { EngineEditComponent } from './settings/engine-edit/engine-edit.component';
+import { MediumEditComponent } from './settings/medium-edit/medium-edit.component';
+import { GameModeEditComponent } from './settings/game-mode-edit/game-mode-edit.component';
 
 
 @NgModule({
@@ -57,6 +69,10 @@ import { GameEditComponent } from './game/game-edit/game-edit.component';
     PublisherEditComponent,
     ConsoleEditComponent,
     GameEditComponent,
+    SettingsHomeComponent,
+    EngineEditComponent,
+    MediumEditComponent,
+    GameModeEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +109,9 @@ import { GameEditComponent } from './game/game-edit/game-edit.component';
   providers: [PageService,
     SortService,
     FilterService,
-    GroupService],
+    GroupService,
+    EditService,
+    ToolbarService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

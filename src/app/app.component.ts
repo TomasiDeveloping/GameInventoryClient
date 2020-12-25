@@ -13,7 +13,12 @@ L10n.load({
       UnGroup: 'Klicken Sie hier, um die Gruppierung aufheben',
       EmptyDataSourceError: 'DataSource darf bei der Erstauslastung nicht leer sein, da Spalten aus der dataSource im AutoGenerate Spaltenraster',
       Item: 'Artikel',
-      Items: 'Artikel'
+      Items: 'Artikel',
+      Add: 'Hinzufügen',
+      Edit: 'Bearbeiten',
+      Delete: 'Löschen',
+      Cancel: 'Abbrechen',
+      Update: 'Speichern'
     },
     pager: {
       currentPageInfo: '{0} von {1} Seiten',

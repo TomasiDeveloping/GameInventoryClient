@@ -1,0 +1,20 @@
+<div class="mediumDialogHeader">
+  <h2 mat-dialog-title *ngIf="currentMedium.name.length > 0">{{currentMedium.name}} bearbeiten</h2>
+  <h2 mat-dialog-title *ngIf="currentMedium.name.length === 0">Medium hinzufügen</h2>
+  <mat-icon (click)="onCloseDialog(false)">close</mat-icon>
+</div>
+<mat-dialog-content>
+  <form #editForm="ngForm" id="editForm" (ngSubmit)="onUpdateMedium()">
+    <mat-form-field appearance="outline">
+      <mat-label>Medium Name</mat-label>
+      <label>
+        <input matInput type="text" name="name" [ngModel]="currentMedium.name" required>
+      </label>
+      <mat-error *ngIf="editForm.invalid">Name darf nicht leer sein</mat-error>
+    </mat-form-field>
+    <button [disabled]="!editForm.dirty || !editForm.valid" mat-raised-button color="primary"
+            type="submit">{{currentMedium.mediumId > 0 ? 'speichern' : 'hinzufügen'}}</button>
+  </form>
+</mat-dialog-content>
+
+

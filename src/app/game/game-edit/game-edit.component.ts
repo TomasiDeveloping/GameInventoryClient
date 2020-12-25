@@ -14,6 +14,10 @@ import {EngineService} from '../../_services/engine.service';
 import {PublisherService} from '../../_services/publisher.service';
 import {map} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {ToastrService} from 'ngx-toastr';
+import {GameService} from '../../_services/game.service';
+import {MatOptionSelectionChange} from '@angular/material/core';
 
 @Component({
   selector: 'app-game-edit',
@@ -39,6 +43,9 @@ export class GameEditComponent implements OnInit {
               private mediumService: MediumService,
               private engineService: EngineService,
               private publisherService: PublisherService,
+              private gameService: GameService,
+              private spinnerService: NgxSpinnerService,
+              private toastr: ToastrService,
               @Inject(MAT_DIALOG_DATA) public data: any) {
     this.currentGame = data;
   }
@@ -103,7 +110,54 @@ export class GameEditComponent implements OnInit {
   }
 
   onUpdateGame(): void {
-    console.log(this.editForm);
+    this.currentGame.name = this.editForm.value.name;
+    this.currentGame.ageRating = this.editForm.value.ageRating;
+    this.currentGame.publisherId = this.editForm.value.publisher;
+    this.currentGame.gameEngineId = this.editForm.value.engine;
+    this.currentGame.mediums = this.editForm.value.mediums;
+    this.currentGame.plattforms = this.editForm.value.plattforms;
+    this.currentGame.gameModes = this.editForm.value.gameModes;
+    this.currentGame.genres = this.editForm.value.genres;
+    this.currentGame.firstPublication = this.editForm.value.firstPublication;
+    this.currentGame.information = this.editForm.value.information;
+    this.currentGame.coverUrl = this.editForm.value.coverUrl;
+    this.currentGame.description = this.editForm.value.description;
+
+    if (this.currentGame.gameId > 0) {
+      this.updateGame(this.currentGame);
+    } else {
+      this.insertGame(this.currentGame);
+    }
+  }
+
+  insertGame(game: GameModel): void {
+    this.spinnerService.show();
+    this.gameService.insertGame(game).subscribe(
+      (response) => {
+        this.spinnerService.hide();
+        this.onCloseDialog(true);
+        this.toastr.success('Game ' + response.name + ' erfolgreich hinzugefügt');
+      }, error => {
+        this.spinnerService.hide();
+        this.onCloseDialog(false);
+        this.toastr.error(error.error.message);
+      }
+    );
+  }
+
+  updateGame(game: GameModel): void {
+    this.spinnerService.show();
+    this.gameService.updateGame(game.gameId, game).subscribe(
+      (response) => {
+        this.spinnerService.hide();
+        this.onCloseDialog(true);
+        this.toastr.success('Game ' + response.name + ' erfolgreich geändert');
+      }, error => {
+        this.spinnerService.hide();
+        this.onCloseDialog(false);
+        this.toastr.error(error.error.message);
+      }
+    );
   }
 
   genreCompare(item1: GenreModel, item2: GenreModel): boolean {
@@ -120,5 +174,97 @@ export class GameEditComponent implements OnInit {
 
   mediumCompare(item1: MediumModel, item2: MediumModel): boolean {
     return item1 && item2 ? item1.mediumId === item2.mediumId : item1.mediumId === item2.mediumId;
+  }
+
+  onGenresChange(event: MatOptionSelectionChange): void {
+    if (this.currentGame.gameId <= 0 || !event.isUserInput) {
+      return;
+    }
+    if (event.source.selected) {
+      this.gameService.insertGenresToGame(this.currentGame.gameId, event.source.value.genreId).subscribe(
+        (response) => {
+          if (!response) {
+            this.toastr.error('Genre konnte nicht hinzugefügt werden');
+          }
+        }
+      );
+    } else {
+      this.gameService.removeGenreFromGame(this.currentGame.gameId, event.source.value.genreId).subscribe(
+        (response) => {
+          if (!response) {
+            this.toastr.error('Genre konnte nicht entfernt werden');
+          }
+        }
+      );
+    }
+  }
+
+  onPlattformChange(event: MatOptionSelectionChange): void {
+    if (this.currentGame.gameId <= 0 || !event.isUserInput) {
+      return;
+    }
+    if (event.source.selected) {
+      this.gameService.insertPlattformToGame(this.currentGame.gameId, event.source.value.plattformId).subscribe(
+        (response) => {
+          if (!response) {
+            this.toastr.error('Konsole konnte nicht hinzugefügt werden');
+          }
+        }
+      );
+    } else {
+      this.gameService.removePlattformFromGame(this.currentGame.gameId, event.source.value.plattformId).subscribe(
+        (response) => {
+          if (!response) {
+            this.toastr.error('Konsole konnte nicht entfernt werden');
+          }
+        }
+      );
+    }
+  }
+
+  onGameModeChange(event: MatOptionSelectionChange): void {
+    if (this.currentGame.gameId <= 0 || !event.isUserInput) {
+      return;
+    }
+    if (event.source.selected) {
+      this.gameService.insertGameModeToGame(this.currentGame.gameId, event.source.value.gameModeId).subscribe(
+        (response) => {
+          if (!response) {
+            this.toastr.error('Game Mode konnte nicht hinzugefügt werden');
+          }
+        }
+      );
+    } else {
+      this.gameService.removeGameModeFromGame(this.currentGame.gameId, event.source.value.gameModeId).subscribe(
+        (response) => {
+          if (!response) {
+            this.toastr.error('Game Mode konnte nicht entfernt werden');
+          }
+        }
+      );
+    }
+  }
+
+  onMediumChange(event: MatOptionSelectionChange): void {
+    if (this.currentGame.gameId <= 0 || !event.isUserInput) {
+      return;
+    }
+    if (event.source.selected) {
+      this.gameService.insertMediumToGame(this.currentGame.gameId, event.source.value.mediumId).subscribe(
+        (response) => {
+          if (!response) {
+            this.toastr.error('Medium konnte nicht hinzugefügt werden');
+          }
+        }
+      );
+    } else {
+      this.gameService.removeMediumFromGame(this.currentGame.gameId, event.source.value.mediumId).subscribe(
+        (response) => {
+          if (!response) {
+            this.toastr.error('Medium konnte nicht entfernt werden');
+          }
+        }
+      );
+    }
   }
 }

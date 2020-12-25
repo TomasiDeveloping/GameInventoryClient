@@ -5,6 +5,7 @@ import {GameHomeComponent} from '../game/game-home/game-home.component';
 import {ConsoleHomeComponent} from '../console/console-home/console-home.component';
 import {PublisherHomeComponent} from '../publisher/publisher-home/publisher-home.component';
 import {GenreHomeComponent} from '../genre/genre-home/genre-home.component';
+import {SettingsHomeComponent} from '../settings/settings-home/settings-home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/game', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'publisher/:publisher', component: PublisherHomeComponent},
   { path: 'genre', component: GenreHomeComponent},
   { path: 'genre/:genre', component: GenreHomeComponent},
+  { path: 'settings', component: SettingsHomeComponent},
   { path: '**', redirectTo: '/game', pathMatch: 'full'}
 ];
 

@@ -27,7 +27,17 @@ mat-toolbar{
 #menuIcon {
   color: red;
 }
-
+#iconLi {
+  display: flex;
+  align-items: center;
+}
+#settings{
+  color: lightgray;
+}
+#settings:hover {
+  cursor: pointer;
+  color: white;
+}
 @media(max-width: 959px){
   mat-toolbar{
     border-radius: 0;

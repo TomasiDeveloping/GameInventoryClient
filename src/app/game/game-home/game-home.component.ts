@@ -163,12 +163,19 @@ export class GameHomeComponent implements OnInit {
   }
 
   onGameClick(event: any): void {
-    this.dialog.open(GameDetailComponent, {
+    const dialogRef = this.dialog.open(GameDetailComponent, {
       width: '90%',
       height: 'auto',
       data: event.rowData.gameId
     });
-    console.log(event.rowData.gameId);
+    dialogRef.afterClosed().subscribe(
+      reload => {
+        if (reload) {
+          this.getDisplayGames();
+          this.value = '';
+        }
+      }
+    );
   }
 
   onAddGame(): void {
@@ -190,9 +197,17 @@ export class GameHomeComponent implements OnInit {
       publisherId: number;
       publisherName = '';
     };
-    this.dialog.open(GameEditComponent, {
+    const dialogRef = this.dialog.open(GameEditComponent, {
       width: '60%',
       data: game
     });
+    dialogRef.afterClosed().subscribe(
+      reload => {
+        if (reload) {
+          this.getDisplayGames();
+          this.value = '';
+        }
+      }
+    );
   }
 }

@@ -1,0 +1,61 @@
+<h1>Einstellungen</h1>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Game Engine bearbeiten
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <ejs-grid #engineGrid [dataSource]="engines" (toolbarClick)="engineGridActions($event)">
+    <e-columns>
+      <e-column headerText="Engine Id" field="gameEngineId" textAlign="center"></e-column>
+      <e-column headerText="Engine Name" field="name" textAlign="center"></e-column>
+      <e-column headerText="Bearbeiten" textAlign="center">
+        <ng-template #template let-data>
+          <mat-icon class="editIcon" (click)="onEngineEdit(data)">edit</mat-icon>
+          <mat-icon class="deleteIcon" (click)="onEngineDelete(data)">delete</mat-icon>
+        </ng-template>
+      </e-column>
+    </e-columns>
+  </ejs-grid>
+</mat-expansion-panel>
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Game Medium bearbeiten
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <ejs-grid #mediumGrid [dataSource]="mediums" (toolbarClick)="mediumGridActions($event)">
+    <e-columns>
+      <e-column headerText="Medium Id" field="mediumId" textAlign="center"></e-column>
+      <e-column headerText="Medium Name" field="name" textAlign="center"></e-column>
+      <e-column headerText="Bearbeiten" textAlign="center">
+        <ng-template #template let-data>
+          <mat-icon class="editIcon" (click)="onMediumEdit(data)">edit</mat-icon>
+          <mat-icon class="deleteIcon" (click)="onMediumDelete(data)">delete</mat-icon>
+        </ng-template>
+      </e-column>
+    </e-columns>
+  </ejs-grid>
+</mat-expansion-panel>
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Game Mode bearbeiten
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <ejs-grid #gameModeGrid [dataSource]="gameModes" (toolbarClick)="gameModeGridActions($event)">
+    <e-columns>
+      <e-column headerText="Medium Id" field="gameModeId" textAlign="center"></e-column>
+      <e-column headerText="Medium Name" field="name" textAlign="center"></e-column>
+      <e-column headerText="Bearbeiten" textAlign="center">
+        <ng-template #template let-data>
+          <mat-icon class="editIcon" (click)="onGameModeEdit(data)">edit</mat-icon>
+          <mat-icon class="deleteIcon" (click)="onGameModeDelete(data)">delete</mat-icon>
+        </ng-template>
+      </e-column>
+    </e-columns>
+  </ejs-grid>
+</mat-expansion-panel>
+

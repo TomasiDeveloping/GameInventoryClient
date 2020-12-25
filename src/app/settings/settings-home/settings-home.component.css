@@ -1,0 +1,21 @@
+.editIcon {
+  margin-right: 10px;
+}
+.deleteIcon {
+  color: red;
+}
+mat-icon:hover {
+  cursor: pointer;
+}
+mat-expansion-panel {
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+}
+mat-panel-title {
+  font-weight: bold;
+}
+mat-expansion-panel {
+  background-color: lightgray;
+}

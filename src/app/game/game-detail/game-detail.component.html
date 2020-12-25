@@ -8,12 +8,12 @@
       <mat-icon>edit</mat-icon>
       <span>Bearbeiten</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="onDelete(currentGame)">
       <mat-icon>delete</mat-icon>
       <span>Löschen</span>
     </button>
   </mat-menu>
-  <mat-icon (click)="onCloseClick()">close</mat-icon>
+  <mat-icon (click)="onCloseClick(false)">close</mat-icon>
 </div>
 <div class="container" *ngIf="currentGame">
   <mat-dialog-content class="mat-typography">
