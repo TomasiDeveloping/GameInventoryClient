@@ -42,12 +42,12 @@ Mit doppelklick auf das gewünschte Game öffnet sich eine Detailanzeige mit all
 <img src="https://github.com/TomasiDeveloping/GameInventoryClient/blob/master/Screenshots/Games10.png" width="600">
 
 # Konsolen
-Im Abschnitt Konsolen werden alle erfassten Konsolen des Benutzers angezeigt mit den efassten Daten
+Im Abschnitt Konsolen werden alle erfassten Konsolen des Benutzers angezeigt mit den erfassten Daten
 
 <img src="https://github.com/TomasiDeveloping/GameInventoryClient/blob/master/Screenshots/Konsole1.png" width="600">
 
 ## Konsole bearbeiten oder löschen
-Jede erfassete Konsole lässt sich auch bearbeiten oder löschen
+Jede erfasste Konsole lässt sich auch bearbeiten oder löschen
 
 <img src="https://github.com/TomasiDeveloping/GameInventoryClient/blob/master/Screenshots/Konsole2.png" width="600">
 
@@ -56,16 +56,16 @@ Im Abschnitt Publisher sieht der Benutzer alle Publsiher die er erfasst hat
 
 <img src="https://github.com/TomasiDeveloping/GameInventoryClient/blob/master/Screenshots/Publisher.png" width="600">
 
-Mit klick auf einen Publsiher erhält der Benutzer Informationen über den gewünschten Publisher und kann diesen bearbeiten oder löschen
+Mit Klick auf einen Publisher erhält der Benutzer Informationen über den gewünschten Publisher und kann diesen bearbeiten oder löschen
 
 <img src="https://github.com/TomasiDeveloping/GameInventoryClient/blob/master/Screenshots/Publisher2.png" width="600">
 
 # Genre
-Im Abschnitt Genre sieht der Benutzer alle Genres die er erfasst hat und kann diese bearbeiten oder löschen
+Im Abschnitt Genre sieht der Benutzer alle Genres, die er erfasst hat und kann diese bearbeiten oder löschen
 
 <img src="https://github.com/TomasiDeveloping/GameInventoryClient/blob/master/Screenshots/Genre.png" width="600">
 
-# Einstellunge
+# Einstellungen
 Im letzten Abschnitt Einstellungen hat der Benutzer noch eine Übersicht über alle erfassten Game Engines, Spielmodus und Mediums,
 diese lassen sich alle bearbeiten oder auch löschen.
 
