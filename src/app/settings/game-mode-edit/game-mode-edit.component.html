@@ -3,8 +3,10 @@
   <h2 mat-dialog-title *ngIf="currentGameMode.name.length === 0">Game Mode hinzufügen</h2>
   <mat-icon (click)="onCloseDialog(false)">close</mat-icon>
 </div>
+<!--GameMode edit form-->
 <mat-dialog-content>
   <form #editForm="ngForm" id="editForm" (ngSubmit)="onUpdateGameMode()">
+<!--    GameMode name-->
     <mat-form-field appearance="outline">
       <mat-label>Game Mode Name</mat-label>
       <label>
@@ -12,6 +14,7 @@
       </label>
       <mat-error *ngIf="editForm.invalid">Name darf nicht leer sein</mat-error>
     </mat-form-field>
+<!--    button add or save-->
     <button [disabled]="!editForm.dirty || !editForm.valid" mat-raised-button color="primary"
             type="submit">{{currentGameMode.gameModeId > 0 ? 'speichern' : 'hinzufügen'}}</button>
   </form>

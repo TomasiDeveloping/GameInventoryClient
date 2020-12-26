@@ -123,6 +123,7 @@ export class GameHomeComponent implements OnInit {
       }
     );
   }
+
   getGamesByParams(): void {
     if (this.gameParams.plattformId === 0 && this.gameParams.genreId === 0 && this.gameParams.gameModeId === 0) {
       this.filterDisplayGames = this.displayGames;
@@ -139,6 +140,7 @@ export class GameHomeComponent implements OnInit {
     }
   }
 
+  // if a game is clicked by autocomplete the grid is updated
   onGameChange(event: DisplayGame): void {
     if (!event.gameId || !event) {
       this.filterDisplayGames = this.filterCacheGames;
@@ -147,21 +149,25 @@ export class GameHomeComponent implements OnInit {
     this.filterDisplayGames = this.filterDisplayGames.filter(x => x.gameId === event.gameId);
   }
 
+  // If a platform is clicked, a query is made to the DB and the result is updated in the grid.
   onConsoleChange(event: MatSelectChange): void {
     this.gameParams.plattformId = event.value;
     this.getGamesByParams();
   }
 
+  // If a genre is clicked, a query is made to the DB and the result is updated in the grid.
   onGenreChange(event: MatSelectChange): void {
     this.gameParams.genreId = event.value;
     this.getGamesByParams();
   }
 
+  // If a game mode is clicked, a query is made to the DB and the result is updated in the grid.
   onGameModeChange(event: MatRadioChange): void {
     this.gameParams.gameModeId = event.value;
     this.getGamesByParams();
   }
 
+  // if a game is double clicked the detail dialog is opened
   onGameClick(event: any): void {
     const dialogRef = this.dialog.open(GameDetailComponent, {
       width: '90%',

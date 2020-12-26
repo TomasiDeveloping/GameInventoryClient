@@ -25,7 +25,9 @@ export class GenreHomeComponent implements OnInit {
               private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    // checks if a genre was called via the params
     const genre = this.route.snapshot.paramMap.get('genre');
+    // if only one genre was called, only this one will be loaded from the db by name, otherwise all will be loaded
     if (genre) {
       this.getGenreByName(genre);
     } else {
@@ -53,6 +55,7 @@ export class GenreHomeComponent implements OnInit {
       }
     );
   }
+
   onGenreEdit(genre: GenreModel): void {
     const dialogRef = this.dialog.open(GenreEditComponent, {
       width: '60%',

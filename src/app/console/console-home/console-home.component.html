@@ -1,5 +1,6 @@
 <h1>Konsolen</h1>
 <button mat-raised-button color="primary" (click)="addPlattform()">Konsole hinzufügen</button>
+<!--All platform are loaded and displayed-->
 <div class="container" *ngIf="plattforms">
   <mat-card class="consoleCard" *ngFor="let plattform of plattforms">
     <mat-card-header>
@@ -28,7 +29,7 @@
     </mat-accordion>
   </mat-card>
 </div>
-
+<!--Only one platform is displayed if it was clicked via the Game Detail dialog-->
 <div class="container" *ngIf="currentPlattform">
   <mat-card class="singleConsoleCard">
     <mat-card-header>

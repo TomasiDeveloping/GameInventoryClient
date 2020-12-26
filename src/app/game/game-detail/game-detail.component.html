@@ -1,5 +1,7 @@
 <div class="header">
   <h2 mat-dialog-title>{{currentGame?.name}}</h2>
+
+<!--  menu button with edit and delete-->
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>settings</mat-icon>
   </button>
@@ -13,8 +15,11 @@
       <span>Löschen</span>
     </button>
   </mat-menu>
+
+<!--  close button-->
   <mat-icon (click)="onCloseClick(false)">close</mat-icon>
 </div>
+<!--Container with details-->
 <div class="container" *ngIf="currentGame">
   <mat-dialog-content class="mat-typography">
     <img src="{{currentGame.coverUrl}}" alt="{{currentGame.name}}" width="auto" height="250px">

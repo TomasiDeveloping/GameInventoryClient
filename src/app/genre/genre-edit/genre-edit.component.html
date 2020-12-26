@@ -3,8 +3,10 @@
   <h2 mat-dialog-title *ngIf="currentGenre.name.length === 0">Genre hinzufügen</h2>
   <mat-icon (click)="onCloseDialog(false)">close</mat-icon>
 </div>
+<!--edit form with inputs-->
 <mat-dialog-content>
   <form #editForm="ngForm" id="editForm" (ngSubmit)="onUpdateGenre()">
+<!--    Genre Name-->
     <mat-form-field appearance="outline">
       <mat-label>Genre Name</mat-label>
       <label>
@@ -12,6 +14,7 @@
       </label>
       <mat-error *ngIf="editForm.invalid">Name darf nicht leer sein</mat-error>
     </mat-form-field>
+<!--    Genre Description-->
     <mat-form-field appearance="outline">
       <mat-label>Beschreibung</mat-label>
       <label>
@@ -20,6 +23,7 @@
       </label>
       <mat-error *ngIf="editForm.invalid">Beschreibung darf nicht leer sein</mat-error>
     </mat-form-field>
+<!--    button add or update-->
     <button [disabled]="!editForm.dirty || !editForm.valid" mat-raised-button color="primary"
             type="submit">{{currentGenre.genreId > 0 ? 'speichern' : 'hinzufügen'}}</button>
   </form>

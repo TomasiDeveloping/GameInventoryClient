@@ -26,8 +26,9 @@ export class ConsoleHomeComponent implements OnInit {
               private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    // checks if a platform was called via the params
     const plattform = this.route.snapshot.paramMap.get('plattform');
-
+    // if only one platform was called, only this one will be loaded from the db by name, otherwise all will be loaded
     if (plattform) {
       this.getPlattformByName(plattform);
     } else {

@@ -4,6 +4,7 @@
   color="primary"
   (click)="onNewGenre()">Genre hinzufügen
 </button>
+<!--Container with all genres-->
 <div class="container" *ngIf="genres">
   <mat-card class="genreCard" *ngFor="let genre of genres">
     <mat-card-header>
@@ -25,7 +26,7 @@
     </mat-card-actions>
   </mat-card>
 </div>
-
+<!--Container with selected genre from params-->
 <div class="container" *ngIf="genre">
   <mat-card class="genreSingleCard">
     <mat-card-header>

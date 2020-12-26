@@ -1,10 +1,12 @@
 <h1>Einstellungen</h1>
+<!--Engine expansion panel-->
 <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
       Game Engine bearbeiten
     </mat-panel-title>
   </mat-expansion-panel-header>
+<!--  Engine grid-->
   <ejs-grid #engineGrid [dataSource]="engines" (toolbarClick)="engineGridActions($event)">
     <e-columns>
       <e-column headerText="Engine Id" field="gameEngineId" textAlign="center"></e-column>
@@ -18,13 +20,14 @@
     </e-columns>
   </ejs-grid>
 </mat-expansion-panel>
-
+<!--Game Medium expansion panel-->
 <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
       Game Medium bearbeiten
     </mat-panel-title>
   </mat-expansion-panel-header>
+<!--  Game Medium grid-->
   <ejs-grid #mediumGrid [dataSource]="mediums" (toolbarClick)="mediumGridActions($event)">
     <e-columns>
       <e-column headerText="Medium Id" field="mediumId" textAlign="center"></e-column>
@@ -38,13 +41,14 @@
     </e-columns>
   </ejs-grid>
 </mat-expansion-panel>
-
+<!--Game Mode expansion panel-->
 <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
       Game Mode bearbeiten
     </mat-panel-title>
   </mat-expansion-panel-header>
+<!--  Game Mode grid-->
   <ejs-grid #gameModeGrid [dataSource]="gameModes" (toolbarClick)="gameModeGridActions($event)">
     <e-columns>
       <e-column headerText="Medium Id" field="gameModeId" textAlign="center"></e-column>

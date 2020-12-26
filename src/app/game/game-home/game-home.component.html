@@ -1,6 +1,8 @@
 <h1>Games</h1>
 <button mat-raised-button color="primary" (click)="onAddGame()">Game hinzufügen</button>
+<!--Container with select and radio button-->
 <div class="container">
+<!--  Autocomplete select-->
   <div class="row-header">
     <mat-form-field appearance="outline" class="headerForm">
       <mat-label>Games</mat-label>
@@ -18,6 +20,7 @@
       </button>
     </mat-form-field>
   </div>
+<!--  Console select -->
   <div class="row" *ngIf="plattforms">
     <mat-form-field appearance="outline">
       <mat-label>Konsole</mat-label>
@@ -32,6 +35,7 @@
       </mat-select>
     </mat-form-field>
   </div>
+<!--  Game mode select-->
   <div class="row" *ngIf="gameModes">
     <mat-radio-group (change)="onGameModeChange($event)">
       <mat-radio-button *ngFor="let gameMode of gameModes"
@@ -39,6 +43,7 @@
                         [checked]="gameMode.gameModeId === 0">{{gameMode.name}}</mat-radio-button>
     </mat-radio-group>
   </div>
+<!--  Grid with Games-->
   <ejs-grid [dataSource]="filterDisplayGames" (recordDoubleClick)="onGameClick($event)" [allowPaging]="true"
             [locale]="'de'">
     <e-columns>

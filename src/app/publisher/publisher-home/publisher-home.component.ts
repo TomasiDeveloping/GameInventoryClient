@@ -26,7 +26,9 @@ export class PublisherHomeComponent implements OnInit {
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    // checks if a publisher was called via the params
     const publisherName = this.route.snapshot.paramMap.get('publisher');
+    // if only one publisher was called, only this one will be loaded from the db by name, otherwise all will be loaded
     if (publisherName) {
       this.getPublisherByName(publisherName);
     } else {

@@ -176,6 +176,7 @@ export class GameEditComponent implements OnInit {
     return item1 && item2 ? item1.mediumId === item2.mediumId : item1.mediumId === item2.mediumId;
   }
 
+  // If the game is in edit mode, a genre is added or removed directly in the DB when you click on it
   onGenresChange(event: MatOptionSelectionChange): void {
     if (this.currentGame.gameId <= 0 || !event.isUserInput) {
       return;
@@ -199,6 +200,7 @@ export class GameEditComponent implements OnInit {
     }
   }
 
+  // If the game is in edit mode, a platform is added or removed directly in the DB when you click on it
   onPlattformChange(event: MatOptionSelectionChange): void {
     if (this.currentGame.gameId <= 0 || !event.isUserInput) {
       return;
@@ -222,6 +224,7 @@ export class GameEditComponent implements OnInit {
     }
   }
 
+  // If the game is in edit mode, a gameMode is added or removed directly in the DB when you click on it
   onGameModeChange(event: MatOptionSelectionChange): void {
     if (this.currentGame.gameId <= 0 || !event.isUserInput) {
       return;
@@ -245,6 +248,7 @@ export class GameEditComponent implements OnInit {
     }
   }
 
+  // If the game is in edit mode, a medium is added or removed directly in the DB when you click on it
   onMediumChange(event: MatOptionSelectionChange): void {
     if (this.currentGame.gameId <= 0 || !event.isUserInput) {
       return;

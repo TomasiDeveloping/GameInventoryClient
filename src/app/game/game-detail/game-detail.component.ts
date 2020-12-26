@@ -44,14 +44,17 @@ export class GameDetailComponent implements OnInit {
     this.dialogRef.close(reload);
   }
 
+  // if you click on a genre you will be redirected to the genre page with the genre you clicked on
   onGenre(genre: string): void {
     this.router.navigate(['genre/', genre]).then(() => this.onCloseClick(false));
   }
 
+  // if you click on a publisher, you will be redirected to the publisher page with the publisher you clicked on.
   onPublisher(publisherName: string): void {
     this.router.navigate(['publisher/', publisherName]).then(() => this.onCloseClick(false));
   }
 
+  // if a console has been clicked on, the console page is redirected to the clicked console
   onPlattform(plattformName: string): void {
     this.router.navigate(['konsolen/', decodeURI(plattformName)]).then(() => this.onCloseClick(false));
   }

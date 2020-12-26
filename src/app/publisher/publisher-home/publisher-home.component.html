@@ -1,5 +1,6 @@
 <h1>Publisher</h1>
 <button mat-raised-button color="primary" id="add" (click)="onAddPublisher()">Publisher hinzufügen</button>
+<!--Container with all publisher-->
 <div class="container" *ngIf="publishers">
   <mat-accordion multi>
     <mat-expansion-panel *ngFor="let publisher of publishers" hideToggle>
@@ -19,7 +20,7 @@
     </mat-expansion-panel>
   </mat-accordion>
 </div>
-
+<!--Container with one publisher called by params-->
 <div class="container" *ngIf="currentPublisher">
   <mat-card class="publisherSingleCard">
     <mat-card-header>

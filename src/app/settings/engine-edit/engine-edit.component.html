@@ -3,8 +3,10 @@
   <h2 mat-dialog-title *ngIf="currentEngine.name.length === 0">Game Engine hinzufügen</h2>
   <mat-icon (click)="onCloseDialog(false)">close</mat-icon>
 </div>
+<!--Engine edit form-->
 <mat-dialog-content>
   <form #editForm="ngForm" id="editForm" (ngSubmit)="onUpdateEngine()">
+<!--    Engine name-->
     <mat-form-field appearance="outline">
       <mat-label>Engine Name</mat-label>
       <label>
@@ -12,6 +14,7 @@
       </label>
       <mat-error *ngIf="editForm.invalid">Name darf nicht leer sein</mat-error>
     </mat-form-field>
+<!--    button add or save-->
     <button [disabled]="!editForm.dirty || !editForm.valid" mat-raised-button color="primary"
             type="submit">{{currentEngine.gameEngineId > 0 ? 'speichern' : 'hinzufügen'}}</button>
   </form>
