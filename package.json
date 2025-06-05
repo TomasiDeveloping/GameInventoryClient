@@ -24,7 +24,7 @@
     "@angular/router": "~11.0.4",
     "@syncfusion/ej2-angular-calendars": "^18.4.31",
     "@syncfusion/ej2-angular-grids": "^18.4.30",
-    "cldr-data": "^36.0.1",
+    "cldr-data": "^36.0.4",
     "ngx-scrolltop": "^2.0.3",
     "ngx-spinner": "^10.0.1",
     "ngx-toastr": "^13.2.0",
